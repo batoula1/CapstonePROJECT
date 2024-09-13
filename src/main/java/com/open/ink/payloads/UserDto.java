@@ -28,7 +28,7 @@ public class UserDto {
 	@Size(min = 4, message = "Minimum 4 character required")
 	private String password;
 	
-	//SET password a json ignore dile Password set kora jabe na
+
 	@JsonIgnore
 	public String getPassword() {
 		return this.password;

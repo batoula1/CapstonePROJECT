@@ -61,9 +61,9 @@ public class AuthController {
 	
 		String userName = userInfo.getUserName();
 		String password = userInfo.getPassword();			
-		//authentication kortesi j User er password thik ache ki na
+
 		this.authenticate(userName, password);		
-		//sob thik ache ekhane
+
 		UserDetails userDetails = userDetailServiceImple.loadUserByUsername(userName);
 		String token = jwtUtil.generateToken(userDetails);
 		
