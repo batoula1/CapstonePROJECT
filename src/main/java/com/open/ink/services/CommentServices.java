@@ -3,8 +3,8 @@ package com.open.ink.services;
 
 import java.util.List;
 
-import com.onneshon.blog.payloads.BlogDto;
-import com.onneshon.blog.payloads.CommentDto;
+import com.open.ink.payloads.BlogDto;
+import com.open.ink.payloads.CommentDto;
 
 public interface CommentServices {
 

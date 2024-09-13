@@ -6,6 +6,7 @@ import java.util.List;
 import com.open.ink.configs.AppConstants;
 import com.open.ink.entities.Role;
 import com.open.ink.entities.User;
+import com.open.ink.exceptions.ResourceNotFoundException;
 import com.open.ink.payloads.UserDto;
 import com.open.ink.payloads.UserDtoSecure;
 import com.open.ink.repositories.RoleRepo;
@@ -14,7 +15,6 @@ import com.open.ink.services.UserServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
 
 
 @Service
@@ -57,7 +57,61 @@ public class UserServicesImple implements UserServices {
 	}
 
 	
+	
+	//update user info
+	@Override
+	public UserDto updateUser(UserDto userDto, int userId) {
+		User user = new User();
+		user = userRepo.findById(userId).orElseThrow(()-> new ResourceNotFoundException("User", "UserID ", userId));
+			
+		user.setName(userDto.getName());
+		user.setEmail(userDto.getEmail());
+		user.setAbout(userDto.getAbout());		
+		
+		System.out.println(user.getPassword());
+		System.out.println("================================");
+		System.out.println("Working");
+		System.out.println("================================");
+		System.out.println(userDto.getPassword());
+		User updatedUser = userRepo.save(user);
+		
+		return this.userToUserDto(updatedUser);
+	}
 
+	
+	
+	//deleting user
+	@Override
+	public void deleteUser(int userId) {
+		
+		User user = userRepo.findById(userId).orElseThrow(()-> new ResourceNotFoundException("User", "UserID ", userId));
+		
+		userRepo.delete(user);
+		
+	}
+
+	
+	//get user by id
+	@Override
+	public UserDto getUserById(int userId) {
+		User user = userRepo.findById(userId).orElseThrow(()-> new ResourceNotFoundException("User", "UserID ", userId));		
+		return this.userToUserDto(user);
+	}
+	
+	
+	//get all user
+	@Override
+	public List<UserDto> getAllUser() {
+		
+		List<User> userList =  userRepo.findAll();
+		List<UserDto> users = new ArrayList<>();
+		
+		for(User user : userList){
+			users.add(this.userToUserDto(user));
+		}
+		
+		return users;
+	}
 	
 	
 	//get user by email
@@ -75,31 +129,38 @@ public class UserServicesImple implements UserServices {
 		
 		return this.userToUserDto(findByEmail);
 	}
-
-
-
-
-	//user to userDto
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//user to userDto 
 	public UserDto userToUserDto(User user) {
-
+		
 		UserDto userDto = new UserDto();
-
+		
 		userDto.setId(user.getId());
 		userDto.setName(user.getName());
 		userDto.setEmail(user.getEmail());
 		userDto.setPassword(user.getPassword());
 		userDto.setAbout(user.getAbout());
-		userDto.setImage(user.getImage());
+		userDto.setImage(user.getImage());	
 		userDto.setRoles(user.getRoles());
-
+		
 		return userDto;
 	}
-
-
+	
+	
 	//user DTo to User
-	public User userDtoToUser(UserDto userDto) {
+	public User userDtoToUser(UserDto userDto) {		
 		User user = new User();
-
+		
 		user.setId(userDto.getId());
 		user.setName(userDto.getName());
 		user.setEmail(userDto.getEmail());
@@ -107,38 +168,40 @@ public class UserServicesImple implements UserServices {
 		user.setAbout(userDto.getAbout());
 		user.setImage(userDto.getImage());
 		user.setRoles(userDto.getRoles());
-
-		return user;
+		
+		return user;	
 	}
 
 
 	//user to user dto secure
 	public UserDtoSecure userToUserDtoSecure(User user) {
 		UserDtoSecure userDtoSecure = new UserDtoSecure();
-
+		
 		userDtoSecure.setId(user.getId());
 		userDtoSecure.setName(user.getName());
 		userDtoSecure.setAbout(user.getAbout());
-		userDtoSecure.setImage(user.getImage());
+		userDtoSecure.setImage(user.getImage());	
 		userDtoSecure.setRoles(user.getRoles());
-
+		
 		return userDtoSecure;
 	}
 
 	//user to user dto secure
 	public User userDtoSecureToUser(UserDtoSecure userDtoSecure) {
-
-		User user = new User();
-
+		
+		User user = new User();	
+		
 		user.setId(userDtoSecure.getId());
 		user.setName(userDtoSecure.getName());
 		user.setAbout(userDtoSecure.getAbout());
 		user.setImage(userDtoSecure.getImage());
 		user.setRoles(userDtoSecure.getRoles());
-
+		
 		return user;
 	}
-
-
+	
+	
+	
+	
 
 }

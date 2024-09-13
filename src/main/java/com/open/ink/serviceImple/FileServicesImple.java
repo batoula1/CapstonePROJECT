@@ -1,4 +1,4 @@
-package com.open.ink.services;
+package com.open.ink.serviceImple;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.open.ink.configs.AppConstants;
-import com.open.ink.serviceImple.FileService;
+import com.open.ink.services.FileService;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -34,7 +34,18 @@ public class FileServicesImple implements FileService {
 		return response;
 	}
 	
-
+	
+	//USER IMAGE VALIDATION
+	@Override
+	public Map<String, String> blogImageValidation(MultipartFile image) {
+		
+		this.minImageSize = AppConstants.MINIMUM_SIZE_OF_USERIMAGE_KB;
+		this.maxImageSize = AppConstants.MAXIMUM_SIZE_OF_BLOGIMAGE_KB;
+		
+		response = imageValidation(image);		
+		return response;
+	}
+	
 	
 	//image validation
 	private Map<String, String> imageValidation(MultipartFile image) {
@@ -60,7 +71,11 @@ public class FileServicesImple implements FileService {
 	}
 	
 	
-
+	
+	
+	
+	
+	
 	
 	
 	
@@ -70,7 +85,19 @@ public class FileServicesImple implements FileService {
 		this.UPLOAD_DIR = "src/main/resources/static/UserImages";		
 		return uploadFile(image);
 	}
-
+	
+	@Override
+	//Blog User Image
+	public String uploadBlogImage(MultipartFile image) {		
+		this.UPLOAD_DIR = "src/main/resources/static/BlogImages";		
+		return uploadFile(image);
+	}
+	
+	
+	
+	
+	
+	
 	//uploading file
 	private String uploadFile(MultipartFile image) {
 		

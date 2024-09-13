@@ -16,6 +16,7 @@ import com.open.ink.repositories.BlogRepo;
 import com.open.ink.repositories.CategoryRepo;
 import com.open.ink.repositories.UserRepo;
 import com.open.ink.services.BlogServices;
+import com.open.ink.services.CategoryServiceImple;
 import com.open.ink.services.CommentServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

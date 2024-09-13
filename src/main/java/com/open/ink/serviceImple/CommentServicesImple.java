@@ -3,19 +3,20 @@ package com.open.ink.serviceImple;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.open.ink.entities.Blog;
+import com.open.ink.entities.Comment;
+import com.open.ink.entities.User;
+import com.open.ink.exceptions.ResourceNotFoundException;
+import com.open.ink.payloads.BlogDto;
+import com.open.ink.payloads.CommentDto;
+import com.open.ink.repositories.BlogRepo;
+import com.open.ink.repositories.CommentRepo;
+import com.open.ink.repositories.UserRepo;
+import com.open.ink.services.CommentServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.onneshon.blog.entities.Blog;
-import com.onneshon.blog.entities.Comment;
-import com.onneshon.blog.entities.User;
-import com.onneshon.blog.exceptions.ResourceNotFoundException;
-import com.onneshon.blog.payloads.BlogDto;
-import com.onneshon.blog.payloads.CommentDto;
-import com.onneshon.blog.repositories.BlogRepo;
-import com.onneshon.blog.repositories.CommentRepo;
-import com.onneshon.blog.repositories.UserRepo;
-import com.onneshon.blog.services.CommentServices;
+
 
 @Service
 public class CommentServicesImple implements CommentServices {
@@ -32,7 +33,7 @@ public class CommentServicesImple implements CommentServices {
 	@Override
 	public CommentDto addComment(CommentDto commentDto, int blogId) {
 		
-		Blog blog = blogRepo.findById(blogId).orElseThrow(()-> new ResourceNotFoundException("Blog", "blog id", blogId)); 
+		Blog blog = blogRepo.findById(blogId).orElseThrow(()-> new ResourceNotFoundException("Blog", "blog id", blogId));
 		
 		User user = userRepo.findById(commentDto.getUser().getId()).orElseThrow(()-> new ResourceNotFoundException("User", "User id", commentDto.getUser().getId()));
 		
