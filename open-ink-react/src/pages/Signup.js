@@ -127,7 +127,7 @@ export default function Signup() {
         <Base>
             <div className="container">
                 <form onSubmit={formik.handleSubmit} id='myForm' className="form-container border col-lg-6 m-auto p-4 my-5">
-                    <h2 className='text-center'>Sign Up to ONNESHON</h2>
+                    <h2 className='text-center'>Sign Up to OpenInk</h2>
 
                     {isloading && <div className='loading'></div>}
                     

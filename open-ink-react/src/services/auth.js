@@ -6,13 +6,6 @@ export const doLogin = (data, next) => {
 }
 
 
-//for logout
-    /** EI CODE TA USE KORLE navigate() eta kaj kortesilo na  */
-// export const doLogout = (next) =>{
-//     localStorage.removeItem("data");
-//     next();
-// }
-
 // const nav = useNavigate();
 export const doLogout = () => {
     localStorage.removeItem("data");
