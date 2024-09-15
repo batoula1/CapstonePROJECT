@@ -80,10 +80,7 @@ function Login() {
     }
 
 
-    // useEffect(() => {
-    //     formik.validateForm()
-    // }, [formik.values])
-    //1 key press Slow kaj kortechilo tai
+    
     // UseEffect to manually trigger the validation after the user enters a new value
     useEffect(() => {
         if (Object.keys(formik.touched).length > 0) {

@@ -85,13 +85,13 @@ export default function Signup() {
                     });
                 })
                 .finally(() => {
-                    //eta kaj korbei
+                    
                     setTimeout(() => {
                         console.log("waitning ... ")
                         setIsloading(false);
                         inpContainer.style.display = "block";
                     }, 2000);
-                    //protibar submit er por image field ta faka hoye jabe
+                    
                     document.getElementById("image").value = "";
                 });
 

@@ -127,7 +127,7 @@ public class UserControllers {
 	// get user by id
 	@GetMapping("/user/{userId}")
 	public ResponseEntity<UserDto> getUser(@PathVariable int userId) {
-		UserDto user = userServices.getUserById(userId);git
+		UserDto user = userServices.getUserById(userId);
 		return ResponseEntity.ok(user);
 	}
 

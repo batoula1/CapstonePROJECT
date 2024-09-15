@@ -25,7 +25,7 @@ function CustomNavbar(args) {
     const navigate = useNavigate();
 
 
-    //navbar er jonno...automatic code generate hoiche
+
     const [isOpen, setIsOpen] = useState();
     const toggle = () => setIsOpen(!isOpen);
 

@@ -81,7 +81,6 @@ export default function WriteBlog() {
                 }).finally(() => {
                     setLoading(false);
 
-                    //protibar submit er por image field ta faka hoye jabe
                     document.getElementById("blogImage").value = "";
                 });
 
@@ -103,7 +102,7 @@ export default function WriteBlog() {
 
 
 
-    //1 key press Slow kaj kortechilo tai
+    
     // UseEffect to manually trigger the validation after the user enters a new value
     useEffect(() => {
         if (Object.keys(formik.touched).length > 0) {

@@ -13,9 +13,9 @@ import Signup from './pages/Signup';
 import UserDashboard from './pages/user-route/UserDashboard';
 import UserPrivateGate from './pages/user-route/UserPrivateGate';
 import ErrorPage from './pages/ErrorPage';
-// import WriteBlog from './pages/blog-route/WriteBlog';
-// import BlogPirvateGate from './pages/blog-route/BlogPirvateGate';
-// import Blog from './pages/Blog';
+import WriteBlog from './pages/blog-route/WriteBlog';
+import BlogPirvateGate from './pages/blog-route/BlogPirvateGate';
+import Blog from './pages/Blog';
 
 function App() {
     return (
@@ -47,11 +47,11 @@ function App() {
                         <Route path="/user/:userId" element={<UserDashboard></UserDashboard>} />
                     </Route>
 
-                    {/* <Route path='/blog' element={<BlogPirvateGate></BlogPirvateGate>}>
+                    <Route path='/blog' element={<BlogPirvateGate></BlogPirvateGate>}>
                         <Route path='' element={<Navigate to='/user/dashboard'></Navigate>}></Route>
                         <Route path="/blog/:blogId" element={<Blog />} />
                         <Route path='write-blog' element={<WriteBlog></WriteBlog>}></Route>
-                    </Route> */}
+                    </Route>
 
                     <Route path='*' element={<ErrorPage></ErrorPage>}></Route>
                     {/* <Route path='/blogs/:title/:id' element={<Blog></Blog>} ></Route> */}

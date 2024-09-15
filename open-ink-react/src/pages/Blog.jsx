@@ -92,9 +92,6 @@ function Blog() {
 
 
 
-    //SOB THIK THAKLEI EI CODE GULA KAJ KORBE
-
-
 
     //Date formating
     const addedDate = new Date(blog.addedDate);
