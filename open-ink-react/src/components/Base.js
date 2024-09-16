@@ -4,6 +4,7 @@ import Footer from './Footer'
 
 
 function Base({ title,children }) {
+    
     return (
         <>
             <CustomNavbar></CustomNavbar>

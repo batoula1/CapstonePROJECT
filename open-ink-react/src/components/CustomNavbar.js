@@ -19,12 +19,11 @@ import {
 
 import { doLogout, getCurrentUserInfo, isUserLoggedIn } from '../services/auth';
 import SearchBar from './SearchBar';
+import { getAllCategories } from '../services/categoryServices';
 
-function CustomNavbar(args) {
+function CustomNavbar() {
 
     const navigate = useNavigate();
-
-
 
     const [isOpen, setIsOpen] = useState();
     const toggle = () => setIsOpen(!isOpen);
@@ -33,11 +32,13 @@ function CustomNavbar(args) {
     const [isLoggedin, setLoggedIn] = useState(false);
     const [user, setUser] = useState(null);
 
+    const [categories, setCategories] = useState([]); // State for categories
+
+
     useEffect(() => {
         setLoggedIn(isUserLoggedIn());
         if (isUserLoggedIn()) {
             setUser(getCurrentUserInfo());
-            console.log(user)
         }
     }, [isLoggedin])
 
@@ -49,6 +50,20 @@ function CustomNavbar(args) {
                 navigate("/home");
             });
     };
+
+    useEffect(() => {
+        getAllCategories()
+            .then((data) => {
+                setCategories(data);  // Set categories from API
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }, []);
+
+    const onCategoryChange =(catName)=>{
+        // alert(catName)
+    }
 
 
     return (
@@ -73,11 +88,18 @@ function CustomNavbar(args) {
                                 Category
                             </DropdownToggle>
                             <DropdownMenu right>
-                                <DropdownItem>Option 1</DropdownItem>
-                                <DropdownItem>Option 2</DropdownItem>
-                                <DropdownItem divider />
-                                <DropdownItem>Reset</DropdownItem>
+                                {categories.map((category) => (
+                                    <DropdownItem
+                                        key={category.categoryId}
+                                        onClick={() => onCategoryChange(category.categoryTitle)} // Pass selected category
+                                    >
+                                        {category.categoryTitle}
+                                    </DropdownItem>
+                                ))}
                             </DropdownMenu>
+
+                            
+                            
                         </UncontrolledDropdown>
                     </Nav>
                     <Nav className='mx-lg-auto w-50'>

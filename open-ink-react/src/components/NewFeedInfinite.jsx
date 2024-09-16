@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 // import { Pagination, PaginationItem, PaginationLink } from 'reactstrap';
 import InfiniteScroll from 'react-infinite-scroll-component'
 
-function NewFeedInfinite() {
+const NewFeedInfinite = ({ selectedCategory }) => {
 
     const [blogs, setBlogs] = useState(null);
     const [data, setData] = useState(null);
@@ -13,9 +13,6 @@ function NewFeedInfinite() {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-
-        console.log("Page number : " + page)
-
 
         // setLoading(true);
         getAllBlogs(page, 0)
@@ -34,7 +31,13 @@ function NewFeedInfinite() {
             })
     }, [page])
 
-
+    useEffect(() => {
+        if (selectedCategory) {
+            // Fetch or filter feed based on selectedCategory
+            console.log("Selected Category:", selectedCategory);
+            // Implement your logic to fetch posts or news based on selectedCategory
+        }
+    }, [selectedCategory]);
 
     if (error !== null) {
         return <div className='display-4 text-danger'>{error}</div>;
@@ -48,7 +51,6 @@ function NewFeedInfinite() {
 
 
     const fetchData = () => {
-        console.log("Req for next data")
         setPage((prevPage) => prevPage + 1)
     }
 

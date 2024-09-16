@@ -23,10 +23,9 @@ export default function SearchBar() {
     }
 
     const handleSearchBlur = () => {
-        console.log("Blurred");
         blurTimeoutRef.current = setTimeout(() => {
             setSearchExpanded(false);
-        }, 200);
+        }, 1000);
         // setSearchExpanded(false);
     }
 

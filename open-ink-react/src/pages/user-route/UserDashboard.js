@@ -31,7 +31,7 @@ function UserDashboard() {
                     .catch((err) => setUser([]))
                 // setUser(fetchedUser);
 
-                //first a user Data asbe and ONLY THEN getBlogsByUserId() eta jeno kaj kore. Noile ID pabo na user er
+                
                 const blogs = await getBlogsByUserId(userIdInt);
                 setUserBlogs(blogs);
 

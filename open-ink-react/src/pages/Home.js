@@ -1,7 +1,7 @@
-import React from 'react'
-import Base from '../components/Base'
-import NewFeed from '../components/NewFeed'
-import NewFeedInfinite from '../components/NewFeedInfinite'
+import React, { useContext, useEffect } from 'react';
+
+import NewFeedInfinite from '../components/NewFeedInfinite';
+import Base from '../components/Base';
 
 const Home = () => {
     return (
@@ -14,12 +14,10 @@ const Home = () => {
                         <NewFeedInfinite></NewFeedInfinite>
                     </div>
                     <div className="col-lg-3"></div>
-
                 </div>
             </div>
-
         </Base>
-    )
+    );
 }
 
-export default Home
+export default Home;
