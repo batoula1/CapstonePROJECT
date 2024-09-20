@@ -29,7 +29,7 @@ function About() {
                     <li><strong>Infinite Scroll Newsfeed:</strong> Enjoy smooth browsing with our endless newsfeed.</li>
                     <li><strong>Search Functionality:</strong> Find blogs, topics, or writers with ease using advanced search options.</li>
                 </ul>
-                <h2>Our Technology</h2>
+                {/* <h2>Our Technology</h2>
                 <p>
                     <strong>OpenInk</strong> is powered by cutting-edge technologies to ensure the best experience:
                 </p>
@@ -37,7 +37,7 @@ function About() {
                     <li><strong>Backend:</strong> Java Spring Boot with MySQL and Spring JPA for efficient data management.</li>
                     <li><strong>Security:</strong> Secured with Spring Security and JWT authentication.</li>
                     <li><strong>Frontend:</strong> Built using React JS and styled with Bootstrap for a modern, responsive interface.</li>
-                </ul>
+                </ul> */}
                 <p>
                     At <strong>OpenInk</strong>, we are committed to offering a platform that encourages creativity and connection. Whether you're here
                     to write, read, or simply explore, we hope OpenInk becomes your favorite space for thoughtful content.

@@ -7,7 +7,10 @@ function Footer() {
                 <div className="row">
                     <div className="col-lg-6">
                         <p className='foot-heading'>More About Webstite</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit, provident! Ab quos provident excepturi amet, odit quibusdam odio ducimus laboriosam numquam nihil quaerat, reprehenderit ex, sed nesciunt sunt optio quidem? Suscipit laudantium maxime aut, commodi enim pariatur neque harum laborum id nisi voluptatem aliquid dolores omnis eligendi illo fugit quos!</p>
+                        <p>
+                            OpenInk is a platform where ideas come to life. Share your stories, connect with others, and explore a world of
+                            creativity. Join our community and start blogging today!
+                        </p>
                     </div>
                     <div className="col-lg-3">
                         <p className='foot-heading'>Keep Connet</p>
