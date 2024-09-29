@@ -18,7 +18,7 @@ export default function SearchBar() {
     const blurTimeoutRef = useRef([]);
 
     const handleSearchFocus = () => {
-        console.log("Focused");
+        // console.log("Focused");
         setSearchExpanded(true);
     }
 
@@ -37,11 +37,11 @@ export default function SearchBar() {
 
 
     useEffect(() => {
-        console.log("search query : " + searchQuery)
+        // console.log("search query : " + searchQuery)
         if (searchQuery !== "") {
             searchBlogByTitle(searchQuery)
                 .then((data) => {
-                    console.log(data.content)
+                    // console.log(data.content)
                     setSearchResult(data.content);
                 })
                 .catch((err) => {

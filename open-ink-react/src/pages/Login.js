@@ -28,7 +28,7 @@ function Login() {
             
             setIsLoading(true);
 
-            console.log(values)
+            // console.log(values)
 
             userLogin(values)
                 .then((respData) => {
@@ -36,11 +36,11 @@ function Login() {
 
                     //after logged in success full
                     doLogin(respData,()=>{
-                        console.log("Logged in successfully " );
+                        //console.log("Logged in successfully " );
                         navigate("/user/dashboard")
                     })
 
-                    console.log(getCurrentUserInfo())
+                    // console.log(getCurrentUserInfo())
 
                     setIsLoading(false);
                     toast.success("Logged In!")

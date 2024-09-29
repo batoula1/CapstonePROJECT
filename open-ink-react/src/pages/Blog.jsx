@@ -36,8 +36,8 @@ function Blog() {
                     });
                     setComment("");
                     setCommentStateChange(commentStateChange + 1)
-                    console.log(data)
-                    console.log("value is " + commentStateChange)
+                    // console.log(data)
+                    // console.log("value is " + commentStateChange)
                 })
                 .catch((err) => {
                     console.log(err.response)
@@ -125,7 +125,7 @@ function Blog() {
     return (
         <Base>
             <div className="container py-5">
-                <div className='col-lg-8'>
+                <div className='col-lg-12'>
                     <div className="blog">
                         {/* blog image */}
                         {blog.blogImage && <div className="blog-image"><img className='card-img rounded mb-2' src={BASE_URL + "/BlogImages/" + blog.blogImage} alt="BLog " /></div>}

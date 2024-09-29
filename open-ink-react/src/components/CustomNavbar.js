@@ -87,7 +87,7 @@ function CustomNavbar() {
                             <DropdownToggle nav caret>
                                 Category
                             </DropdownToggle>
-                            <DropdownMenu right>
+                            <DropdownMenu end>
                                 {categories.map((category) => (
                                     <DropdownItem
                                         key={category.categoryId}

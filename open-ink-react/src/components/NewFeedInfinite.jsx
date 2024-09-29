@@ -34,7 +34,7 @@ const NewFeedInfinite = ({ selectedCategory }) => {
     useEffect(() => {
         if (selectedCategory) {
             // Fetch or filter feed based on selectedCategory
-            console.log("Selected Category:", selectedCategory);
+            // console.log("Selected Category:", selectedCategory);
             // Implement your logic to fetch posts or news based on selectedCategory
         }
     }, [selectedCategory]);

@@ -39,7 +39,7 @@ export default function Signup() {
         }),
         onSubmit: (values, { resetForm }) => {
 
-            console.log(values);
+            // console.log(values);
 
             //for loading
             setIsloading(true);
@@ -87,7 +87,7 @@ export default function Signup() {
                 .finally(() => {
                     
                     setTimeout(() => {
-                        console.log("waitning ... ")
+                        // console.log("waitning ... ")
                         setIsloading(false);
                         inpContainer.style.display = "block";
                     }, 2000);
